@@ -5,6 +5,8 @@ def prRed(skk): print("\033[91m {}\033[00m" .format(skk))
 
 import random
 
+counter_tries = 0
+
 computer_number = random.randint(1, 100)
 
 while True:
@@ -17,8 +19,11 @@ while True:
 
     if player_number == computer_number:
         prLightPurple("You guess it!")
+        prLightPurple(f"It took you a {counter_tries + 1} tries to guess the number!")
         break
     elif player_number > computer_number:
         prYellow("Too High!")
+        counter_tries += 1
     else:
         prCyan("Too Low!")
+        counter_tries += 1
